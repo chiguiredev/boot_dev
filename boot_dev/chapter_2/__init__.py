@@ -16,14 +16,14 @@ def main():
         c = 5 / 9 * (f - 32)
         return c
 
-    def test(f: int) -> None:
+    def test_warrior(f: int) -> None:
         c = round(to_celsius(f), 2)
         print(f, "degrees fahrenheit is", c, "degrees celsius")
 
-    test(100)
-    test(88)
-    test(104)
-    test(112)
+    test_warrior(100)
+    test_warrior(88)
+    test_warrior(104)
+    test_warrior(112)
 
     chapter_end_printer()
 
@@ -32,7 +32,7 @@ def main():
     def hours_to_seconds(hours: int) -> int:
         return hours * 3600
 
-    def test_hours_seconds(hours):
+    def test_hours_seconds(hours: int):
         secs = hours_to_seconds(hours)
         print(f"hours {hours} is {secs:,} seconds")
 
@@ -46,15 +46,18 @@ def main():
 
     chapter_start_printer(2, "Multiple return values")
 
-    def become_warrior(first_name, last_name, power): ...
+    def become_warrior(first_name: str, last_name: str, power: int) -> tuple[str, int]:
+        warrior_tittle = f"{first_name} {last_name} the warrior"
+        new_power = power + 1
+        return warrior_tittle, new_power
 
-    def test(first_name, last_name, power):
+    def test_warrior_test(first_name: str, last_name: str, power: int):
         title, new_power = become_warrior(first_name, last_name, power)
         print(title, "has a power level of:", new_power)
 
-    test("Frodo", "Baggins", 5)
-    test("Bilbo", "Baggins", 10)
-    test("Gandalf", "The Grey", 9000)
+    test_warrior_test("Frodo", "Baggins", 5)
+    test_warrior_test("Bilbo", "Baggins", 10)
+    test_warrior_test("Gandalf", "The Grey", 9000)
 
     chapter_end_printer()
 
